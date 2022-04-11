@@ -22,7 +22,7 @@ export class CreateClientComponent implements OnInit {
     this.clientDTO = new ClientDTO();
   }
 
-  save() {
+  saveClient() {
     this.clientService.createClient(this.clientDTO)
     this.clientDTO = new ClientDTO();
     this.goToClientList();
@@ -30,7 +30,7 @@ export class CreateClientComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();
+    this.saveClient();
   }
 
   private goToClientList() {

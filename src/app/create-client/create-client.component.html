@@ -7,9 +7,8 @@
   <title>Client</title>
 </head>
 <body>
-<h1>Julie's bakery</h1>
 <div>
-  <div>New client?
+  <div class="ask-client">New client?
     <div [hidden]="submitted" style="width: 500px;">
       <form (ngSubmit)="onSubmit()">
         <br>
@@ -48,6 +47,7 @@
           <input type="text" class="form-control" id="country" required [(ngModel)]="clientDTO.country" name="country">
         </div>
         <br>
+<!--        <input type="button" value="SIGN UP" onclick="onSubmitButton()">-->
         <button type="submit" class="btn btn-success">SIGN UP</button>
       </form>
 <!--      <div [hidden]="!submitted">&ndash;&gt;-->
@@ -57,7 +57,7 @@
     </div>
 
   </div>
-  <div>Already have an acoount?
+  <div class="ask-client">Already have an acoount?
     <input type="button" value="SIGN IN" onclick="msg()">
   </div>
 </div>

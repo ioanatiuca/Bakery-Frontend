@@ -1,0 +1,39 @@
+* {
+  background-color: cornsilk
+}
+h2 {
+  text-align: center;
+  font-size: xx-small;
+}
+.logo-bakery {
+  font-family: "Indie Flower", cursive;
+  font-size: 48px;
+  padding-left:32px;
+  color:RGB(120, 41, 15);
+  font-weight: bold;
+}
+nav>a {
+  font-family: "Indie Flower", cursive;
+  font-size: 32px;
+  color:RGB(120, 41, 15);
+  text-decoration: none;
+  border:64px;
+}
+nav>a.active {
+  font-family: "Indie Flower", cursive;
+  font-size: 32px;
+  color:RGB(120, 41, 15);
+  text-decoration: underline;
+  border:64px;
+}
+footer {
+  color: RGB(120, 41, 15);
+  font-size: small;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.images {
+  height: 164px;
+}

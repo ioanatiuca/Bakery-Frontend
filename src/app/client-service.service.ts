@@ -7,10 +7,14 @@ import {Observable} from "rxjs";
 })
 export class ClientServiceService {
 
-  private url= 'http://localhost:8080/api/bakery/client';
+  private url= 'http://localhost:8080/api/bakery';
   constructor(private httpClient: HttpClient) { }
 
+  getAllClients():Observable<any> {
+    return this.httpClient.get(`${this.url}`)
+  }
+
   createClient(clientDTO: Object): Observable<Object> {
-    return this.httpClient.post(`${this.url}`, clientDTO);
+    return this.httpClient.post(`${this.url}`+"/client", clientDTO);
   }
 }

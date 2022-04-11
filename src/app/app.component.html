@@ -1,1 +1,93 @@
-<router-outlet></router-outlet>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <title>Bakery</title>
+</head>
+<body>
+<!--Navbar-->
+<div class="toolbar" role="banner">
+
+<!--  <img-->
+<!--    width="40"-->
+<!--    alt="Angular Logo"-->
+<!--    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="-->
+<!--  />-->
+  <nav class="nav nav-pills nav-fill">
+    <span class="logo-bakery">Julie's Bakery</span>
+    <a
+      class="nav-item nav-link"
+      routerLink="/product"
+      routerLinkActive="active"
+    > PRODUCTS </a
+    >
+    <a
+      class="nav-item nav-link"
+      routerLink="/story"
+      routerLinkActive="active"
+    > OUR STORY </a
+    >
+    <a
+      class="nav-item nav-link"
+      routerLink="/contact"
+      routerLinkActive="active"
+    > CONTACT </a
+    >
+    <a
+      class="nav-item nav-link"
+      routerLink="/client"
+      routerLinkActive="active"
+    > ORDER NOW </a
+    >
+  </nav>
+</div>
+
+<div class="myContent" role="main">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Links -->
+<div class="card-container">
+<!--  <a class="circle-link" title="Find a Local Meetup" href="https://www.meetup.com/find/?keywords=angular" target="_blank" rel="noopener">-->
+<!--    <svg xmlns="http://www.w3.org/2000/svg" width="24.607" height="23.447" viewBox="0 0 24.607 23.447">-->
+<!--      <title>Meetup Logo</title>-->
+<!--      <path id="logo&#45;&#45;mSwarm" d="M21.221,14.95A4.393,4.393,0,0,1,17.6,19.281a4.452,4.452,0,0,1-.8.069c-.09,0-.125.035-.154.117a2.939,2.939,0,0,1-2.506,2.091,2.868,2.868,0,0,1-2.248-.624.168.168,0,0,0-.245-.005,3.926,3.926,0,0,1-2.589.741,4.015,4.015,0,0,1-3.7-3.347,2.7,2.7,0,0,1-.043-.38c0-.106-.042-.146-.143-.166a3.524,3.524,0,0,1-1.516-.69A3.623,3.623,0,0,1,2.23,14.557a3.66,3.66,0,0,1,1.077-3.085.138.138,0,0,0,.026-.2,3.348,3.348,0,0,1-.451-1.821,3.46,3.46,0,0,1,2.749-3.28.44.44,0,0,0,.355-.281,5.072,5.072,0,0,1,3.863-3,5.028,5.028,0,0,1,3.555.666.31.31,0,0,0,.271.03A4.5,4.5,0,0,1,18.3,4.7a4.4,4.4,0,0,1,1.334,2.751,3.658,3.658,0,0,1,.022.706.131.131,0,0,0,.1.157,2.432,2.432,0,0,1,1.574,1.645,2.464,2.464,0,0,1-.7,2.616c-.065.064-.051.1-.014.166A4.321,4.321,0,0,1,21.221,14.95ZM13.4,14.607a2.09,2.09,0,0,0,1.409,1.982,4.7,4.7,0,0,0,1.275.221,1.807,1.807,0,0,0,.9-.151.542.542,0,0,0,.321-.545.558.558,0,0,0-.359-.534,1.2,1.2,0,0,0-.254-.078c-.262-.047-.526-.086-.787-.138a.674.674,0,0,1-.617-.75,3.394,3.394,0,0,1,.218-1.109c.217-.658.509-1.286.79-1.918a15.609,15.609,0,0,0,.745-1.86,1.95,1.95,0,0,0,.06-1.073,1.286,1.286,0,0,0-1.051-1.033,1.977,1.977,0,0,0-1.521.2.339.339,0,0,1-.446-.042c-.1-.092-.2-.189-.307-.284a1.214,1.214,0,0,0-1.643-.061,7.563,7.563,0,0,1-.614.512A.588.588,0,0,1,10.883,8c-.215-.115-.437-.215-.659-.316a2.153,2.153,0,0,0-.695-.248A2.091,2.091,0,0,0,7.541,8.562a9.915,9.915,0,0,0-.405.986c-.559,1.545-1.015,3.123-1.487,4.7a1.528,1.528,0,0,0,.634,1.777,1.755,1.755,0,0,0,1.5.211,1.35,1.35,0,0,0,.824-.858c.543-1.281,1.032-2.584,1.55-3.875.142-.355.28-.712.432-1.064a.548.548,0,0,1,.851-.24.622.622,0,0,1,.185.539,2.161,2.161,0,0,1-.181.621c-.337.852-.68,1.7-1.018,2.552a2.564,2.564,0,0,0-.173.528.624.624,0,0,0,.333.71,1.073,1.073,0,0,0,.814.034,1.22,1.22,0,0,0,.657-.655q.758-1.488,1.511-2.978.35-.687.709-1.37a1.073,1.073,0,0,1,.357-.434.43.43,0,0,1,.463-.016.373.373,0,0,1,.153.387.7.7,0,0,1-.057.236c-.065.157-.127.316-.2.469-.42.883-.846,1.763-1.262,2.648A2.463,2.463,0,0,0,13.4,14.607Zm5.888,6.508a1.09,1.09,0,0,0-2.179.006,1.09,1.09,0,0,0,2.179-.006ZM1.028,12.139a1.038,1.038,0,1,0,.01-2.075,1.038,1.038,0,0,0-.01,2.075ZM13.782.528a1.027,1.027,0,1,0-.011,2.055A1.027,1.027,0,0,0,13.782.528ZM22.21,6.95a.882.882,0,0,0-1.763.011A.882.882,0,0,0,22.21,6.95ZM4.153,4.439a.785.785,0,1,0,.787-.78A.766.766,0,0,0,4.153,4.439Zm8.221,18.22a.676.676,0,1,0-.677.666A.671.671,0,0,0,12.374,22.658ZM22.872,12.2a.674.674,0,0,0-.665.665.656.656,0,0,0,.655.643.634.634,0,0,0,.655-.644A.654.654,0,0,0,22.872,12.2ZM7.171-.123A.546.546,0,0,0,6.613.43a.553.553,0,1,0,1.106,0A.539.539,0,0,0,7.171-.123ZM24.119,9.234a.507.507,0,0,0-.493.488.494.494,0,0,0,.494.494.48.48,0,0,0,.487-.483A.491.491,0,0,0,24.119,9.234Zm-19.454,9.7a.5.5,0,0,0-.488-.488.491.491,0,0,0-.487.5.483.483,0,0,0,.491.479A.49.49,0,0,0,4.665,18.936Z" transform="translate(0 0.123)" fill="#f64060"/>-->
+<!--    </svg>-->
+<!--  </a>-->
+
+<!--  <a class="circle-link" title="Join the Conversation on Discord" href="https://discord.gg/angular" target="_blank" rel="noopener">-->
+<!--    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 245 240">-->
+<!--      <title>Discord Logo</title>-->
+<!--      <path d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>-->
+<!--      <path d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/>-->
+<!--    </svg>-->
+<!--  </a>-->
+</div>
+<div>
+  <img src="https://bucataria-universala.com/wp-content/uploads/2016/12/Baigli-cu-nuca-sau-mac-cozonac-unguresc.jpg" alt="Baigli image" class="images">
+  <img src="https://www.recipetineats.com/wp-content/uploads/2018/03/Chocolate-Cake_9-SQ.jpg" alt="Cake image" class="images">
+  <img src="data:image/jpeg;base64,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"
+       alt="Muffin image" class="images">
+</div>
+
+<!-- Footer -->
+<footer>Julie's Bakery * 2022 * SDA Final Project * by Ioana Gug
+  <!--   &nbsp;-->
+<!--  <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> Give our repo a star.-->
+<!--    <div class="github-star-badge">-->
+<!--      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>-->
+<!--      Star-->
+<!--    </div>-->
+<!--  </a>-->
+<!--  <a href="https://github.com/angular/angular" target="_blank" rel="noopener">-->
+<!--    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>-->
+<!--  </a>-->
+</footer>
+
+<svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+  <title>Gray Clouds Background</title>
+  <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+</svg>
+
+</body>
