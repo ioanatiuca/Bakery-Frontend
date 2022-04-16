@@ -7,7 +7,8 @@ import {Observable} from "rxjs";
 })
 export class ClientServiceService {
 
-  private url= 'http://localhost:8080/api/bakery';
+  private url= '/api/bakery';
+
   constructor(private httpClient: HttpClient) { }
 
   getAllClients():Observable<any> {

@@ -13,6 +13,11 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { OurStoryComponent } from './our-story/our-story.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { OrderComponent } from './order/order.component';
+import {OrderService} from "./order.service";
+import {ProductService} from "./product.service";
+import {ClientServiceService} from "./client-service.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +26,9 @@ import { ProductCategoriesComponent } from './product-categories/product-categor
     DeleteClientComponent,
     OurStoryComponent,
     ContactComponent,
-    ProductCategoriesComponent
+    ProductCategoriesComponent,
+    HomePageComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,11 @@ import { ProductCategoriesComponent } from './product-categories/product-categor
     MatIconModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ProductService,
+    ClientServiceService,
+    OrderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

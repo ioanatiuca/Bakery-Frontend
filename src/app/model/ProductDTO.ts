@@ -1,5 +1,8 @@
+import {ProductCategory} from "../product-categories/product-categories.component";
+
 export class ProductDTO {
-  category:String|undefined;
-  name:String|undefined;
+  productId:number|undefined;
+  category:ProductCategory|undefined;
+  name!:String;
   price:Number|undefined;
 }

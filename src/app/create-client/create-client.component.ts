@@ -23,7 +23,9 @@ export class CreateClientComponent implements OnInit {
   }
 
   saveClient() {
-    this.clientService.createClient(this.clientDTO)
+    this.clientService.createClient(this.clientDTO).subscribe(response => {
+      alert("Clientul a fost creat");
+    })
     this.clientDTO = new ClientDTO();
     this.goToClientList();
   }

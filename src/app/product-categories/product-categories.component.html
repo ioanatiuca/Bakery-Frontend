@@ -1,1 +1,10 @@
-<p>product-categories works!</p>
+<tr *ngFor="let c of categories">
+  <td class="categories">{{c.name}}</td>
+  <td *ngFor="let p of prodMap.get(c.id!)">
+    <div class="products">
+      <h5>{{p.name}}</h5>
+      <h5>{{p.price + " lei" }}</h5>
+    </div>
+    <button (click)="addToCart(p)" >Add to cart</button>
+  </td>
+</tr>
