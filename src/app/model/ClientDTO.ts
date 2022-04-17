@@ -1,10 +1,11 @@
 export class ClientDTO {
-  firstName: String|undefined;
-  lastName:String|undefined;
-  email:String|undefined;
-  phoneNo:String|undefined;
-  address:String|undefined;
-  city:String|undefined;
-  postalCode:String|undefined;
-  country:String|undefined;
+  firstName!: String;
+  lastName!:String;
+  email!:String;
+  phoneNo!:String;
+  address!:String;
+  city!:String;
+  postalCode!:String;
+  country!:String;
+  password!:String;
 }

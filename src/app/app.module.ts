@@ -9,7 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import { OurStoryComponent } from './our-story/our-story.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
@@ -18,6 +18,8 @@ import { OrderComponent } from './order/order.component';
 import {OrderService} from "./order.service";
 import {ProductService} from "./product.service";
 import {ClientServiceService} from "./client-service.service";
+import { LoginComponent } from './login/login.component';
+import {XhrInterceptor} from "./xhrInterceptor";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {ClientServiceService} from "./client-service.service";
     ContactComponent,
     ProductCategoriesComponent,
     HomePageComponent,
-    OrderComponent
+    OrderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import {ClientServiceService} from "./client-service.service";
   providers: [
     ProductService,
     ClientServiceService,
-    OrderService
+    OrderService,
+    { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
