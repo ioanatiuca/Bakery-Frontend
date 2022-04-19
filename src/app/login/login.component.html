@@ -1,43 +1,33 @@
-
-<tr class="header">
-  <td>
-    <div style="font-weight: bolder">LOGIN</div>
-    <div>Already a client at Julie's?</div>
+<tr>
+  <td class="header">
+    <div class="login-title" style="font-weight: bolder; font-size:20px;">LOGIN</div>
     <br>
-  </td>
-  <td>
-    <div style="font-weight: bolder">REGISTER</div>
-    <div>New client at Julie's?</div>
+    <div class="login-text">Please login into your account</div>
     <br>
   </td>
 </tr>
-<tr class="registration-form">
-  <td>
-    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-      <div [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-        <label for="username">Email</label>
-        <input type="text"
-               name="username" [(ngModel)]="model.username"
-               #username="ngModel" required id="username"/>
-        <!--    <div *ngIf="f.submitted-->
-        <!--          && !username.valid">Username is required</div>-->
+<tr>
+  <td class="registration-form">
+    <form id="accesspanel" action="login" method="post">
+      <div class="inset">
+        <p style="display:flex;justify-content:space-around;align-items: center">
+          <input
+                 type="text" name="username" [(ngModel)]="username" id="email" placeholder="username">
+        </p>
+        <p style="display:flex;justify-content:space-around;align-items: center">
+          <input
+                 type="password" name="password" [(ngModel)]="password" id="password" placeholder="password">
+        </p>
       </div>
-      <br>
-      <div [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-        <label for="password">Password</label>
-        <input type="password"
-               name="password" [(ngModel)]="model.password"
-               #password="ngModel" required id="password"/>
-        <!--    <div *ngIf="f.submitted-->
-        <!--          && !password.valid">Password is required</div>-->
-      </div>
-      <div>
-        <button type="submit" class="btn btn-primary">LOGIN</button>
-      </div>
+      <p style="display:flex;justify-content:space-around;align-items: center">
+        <button  (click)=checkLogin() class="btn btn-success">LOGIN</button>
+      </p>
     </form>
+    <br>
+    <div style="display:flex;justify-content:space-evenly;align-items: center">Don't have an account yet? Please REGISTER
+      <a href="http://localhost:4200/client"> here </a>
+    </div>
+
   </td>
-    <td>
-      (registration form)
-    </td>
 </tr>
 

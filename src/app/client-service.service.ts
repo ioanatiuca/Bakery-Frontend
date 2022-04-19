@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {ClientDTO} from "./model/ClientDTO";
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,24 @@ export class ClientServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllClients():Observable<any> {
-    return this.httpClient.get(`${this.url}`)
+  getAllClients() {
+    return this.httpClient.get<ClientDTO[]>('http://localhost:8080/client');
   }
 
-  createClient(clientDTO: Object): Observable<Object> {
-    return this.httpClient.post(`${this.url}`+"/client", clientDTO);
+  public deleteClient(clientDTO: { email: string; }) {
+    return this.httpClient.delete<ClientDTO>("http://localhost:8080/client" + "/"+ clientDTO.email);
   }
+
+  public createClient(clientDTO: ClientDTO) {
+    return this.httpClient.post<ClientDTO>("http://localhost:8080/client", clientDTO);
+  }
+
+  // getAllClients():Observable<any> {
+  //   return this.httpClient.get(`${this.url}`)
+  // }
+  //
+  // createClient(clientDTO: Object): Observable<Object> {
+  //   return this.httpClient.post(`${this.url}`+"/client", clientDTO);
+  // }
 
 }

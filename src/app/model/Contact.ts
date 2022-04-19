@@ -1,3 +1,3 @@
 export class Contact {
-  contact: string|undefined;
+  contact!: string;
 }

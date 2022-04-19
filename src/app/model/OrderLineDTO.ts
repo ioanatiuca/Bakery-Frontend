@@ -1,8 +1,8 @@
 import {ProductDTO} from "./ProductDTO";
 
 export class OrderLineDTO {
-  orderLineId: number|undefined;
+  orderLineId!: number;
   product!:ProductDTO;
-  quantity:number|undefined;
-  totalPrice:number|undefined;
+  quantity!:number;
+  totalPrice!:number;
 }

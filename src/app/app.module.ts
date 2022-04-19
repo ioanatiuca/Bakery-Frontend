@@ -20,6 +20,8 @@ import {ProductService} from "./product.service";
 import {ClientServiceService} from "./client-service.service";
 import { LoginComponent } from './login/login.component';
 import {XhrInterceptor} from "./xhrInterceptor";
+import { LogoutComponent } from './logout/logout.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {XhrInterceptor} from "./xhrInterceptor";
     ProductCategoriesComponent,
     HomePageComponent,
     OrderComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +50,8 @@ import {XhrInterceptor} from "./xhrInterceptor";
   providers: [
     ProductService,
     ClientServiceService,
-    OrderService,
-    { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }
+    OrderService
+    // { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

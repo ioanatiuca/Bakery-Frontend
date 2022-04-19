@@ -7,17 +7,22 @@ import {ProductCategoriesComponent} from "./product-categories/product-categorie
 import {HomePageComponent} from "./home-page/home-page.component";
 import {OrderComponent} from "./order/order.component";
 import {LoginComponent} from "./login/login.component";
+import {LogoutComponent} from "./logout/logout.component";
+import {AccountComponent} from "./account/account.component";
+import {AuthGuardService} from "./auth-guard.service";
 
 const routes: Routes = [
-  // { path: '**', redirectTo: '', pathMatch: 'full' },
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'client', component: CreateClientComponent },
   { path: 'story', component: OurStoryComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'product', component: ProductCategoriesComponent },
+  { path: 'product', component: ProductCategoriesComponent, canActivate:[AuthGuardService]},
   { path: '', component:HomePageComponent},
   { path: 'home', component: HomePageComponent},
-  { path: 'order', component:OrderComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'order', component:OrderComponent, canActivate:[AuthGuardService]},
+  { path: 'login', component: LoginComponent},
+  { path: 'logout', component: LogoutComponent, canActivate:[AuthGuardService]},
+  { path: 'account', component: AccountComponent}
   // { path: 'client/:id', component: DeleteClientComponent },
 ];
 

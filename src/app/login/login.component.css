@@ -1,18 +1,30 @@
 .header {
-  display:flex;
-  /*justify-content:center;*/
-  align-items: center;
-  height: 60px;
-  width: 500px;
+  /*display:flex;*/
+  /*justify-content:space-around;*/
+  /*align-items: center;*/
+  height: 64px;
+  width: 370px;
   background-color: white;
+  padding-top: 12px;
 }
 
 .registration-form {
-  display:flex;
+  /*display:flex;*/
   /*justify-content:center;*/
-  align-items: center;
-  height: 340px;
-  width: 500px;
+  /*align-items: center;*/
+  height: 200px;
+  width: 370px;
   background-color:antiquewhite;
+  padding-top: 40px;
 }
-
+.login-title {
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
+  font-family: "Indie Flower",cursive;
+}
+.login-text {
+  display:flex;
+  justify-content:space-around;
+  align-items: center;
+}
