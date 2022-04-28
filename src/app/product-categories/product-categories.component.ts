@@ -10,7 +10,8 @@ import {ProductDTO} from "../model/ProductDTO";
 export class ProductCategoriesComponent implements OnInit {
 
   categories: ProductCategory[] = [];
-  products: ProductDTO[] = []
+  products: ProductDTO[] = [];
+  photo:number[]=[];
 
   prodMap: Map<number, ProductDTO[]> = new Map<number, ProductDTO[]>();
 
@@ -19,36 +20,61 @@ export class ProductCategoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAllCategories();
+  }
+
+  getAllCategories() {
     this.service.getAllCategories().subscribe(response => {
       this.categories = response as ProductCategory[];
       console.log(response);
       for(let cat of this.categories) {
         this.prodMap.set(cat.id!, []);
       }});
-
-      this.service.getAllProducts().subscribe(response => {
-        this.products = response as ProductDTO[];
-        console.log(response);
-        for(let p of this.products) {
-          var prods: ProductDTO[] = this.prodMap.get(p.category!.id!)!;
-          console.log(prods);
-          prods.push(p);
-          console.log(prods);
-          this.prodMap.set(p.category!.id!, prods);
-          console.log(this.prodMap)
-        }
-      });
   }
 
-  addToCart(product: ProductDTO) {
-    console.log(product)
-  }
+  getAllProductsInACategory(categoryName:string) {
+    this.service.getProductsInACategory(categoryName).subscribe(response => {
+      this.products = response as ProductDTO[];
+      console.log(response);
+    })
 }
 
+  clearcontent(id: string) {
+    document.getElementById(id)!.innerHTML="";
+  }
+
+  getAllProducts (category: ProductCategory) {
+    this.service.getAllProducts().subscribe(response => {
+      this.products = response as ProductDTO[];
+      console.log(response);
+      for(let p of this.products) {
+        var prods: ProductDTO[] = this.prodMap.get(category.id!)!;
+        console.log(prods);
+        prods.push(p);
+        console.log(prods);
+        this.prodMap.set(category.id!, prods);
+        console.log(this.prodMap)
+      }
+    });
+  }
+
+  getCategoryPhoto (photoUrl:string) {
+    this.service.getCategoryPhoto(photoUrl).subscribe(response => {
+      this.photo=response as number[];
+      console.log(response)
+    })
+  }
+
+  addToCart(p: ProductDTO) {
+    console.log(p);
+  }
+
+}
 export class ProductCategory {
-  id: number | undefined;
-  name: string | undefined;
-  description: string | undefined;
+  id!: number;
+  name!: string;
+  description!: string;
+  photoUrl!: string;
 }
 
 

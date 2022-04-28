@@ -26,9 +26,10 @@ export class XhrInterceptor implements HttpInterceptor {
     if (sessionStorage.getItem('username') && sessionStorage.getItem('basicauth')) {
       req = req.clone({
         setHeaders: {
-          'Authorization': 'Bearer'+ sessionStorage.getItem('basicauth'),
+          // 'Authorization': sessionStorage.getItem('basicauth'),
           'Access-Control-Allow-Origin': 'https://localhost:8080/**',
-          'Accept': '*/*'
+          'Accept': '*/*',
+          'Content-type':'application/json'
         }
       })
     }

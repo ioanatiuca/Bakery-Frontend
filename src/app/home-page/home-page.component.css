@@ -1,8 +1,12 @@
 * {
   display: flex;
-  /*align-content: center;*/
   justify-content: center;
-  color:RGB(120, 41, 15);
-  padding-top: 64px;
+  color:RGB(250, 128, 114);
+  font-size: 30px;
+  font-family: "Dosis", sans-serif;
+}
+.logo-bakery {
+  font-family: "Inspiration", cursive;
+  font-size: 70px;
 }
 

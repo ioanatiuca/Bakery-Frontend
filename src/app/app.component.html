@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700&family=Inspiration&display=swap" rel="stylesheet">
   <title>Bakery</title>
 </head>
 <body>
@@ -16,19 +16,18 @@
   <!--    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="-->
   <!--  />-->
   <nav class="nav nav-pills nav-fill container">
-    <div class="logo-bakery" style="color:RGB(33, 1, 36)">
+    <div class="logo-bakery" >
       <a
         class="nav-item nav-link"
-        style="color:RGB(117, 13, 55)"
+        style="color:RGB(250, 128, 114) "
         routerLink="/home"
         routerLinkActive="active"
-      > Julie's Bakery </a>
+      > JB </a>
     </div>
-    <div style="padding-top: 14px; background-color: RGB(179, 222, 193); color:RGB(33, 1, 36)">
+    <div class="buttons" style="padding-top: 14px; background-color: transparent; color:RGB(33, 1, 36)">
       <a
         class="nav-item nav-link"
-        style="color:RGB(33, 1, 36)"
-        routerLink="/product"
+        routerLink="/product/category"
         routerLinkActive="active"
       > PRODUCTS </a
       >
@@ -53,14 +52,14 @@
     </div>
     <div class="icons">
       <a routerLink="/account" routerLinkActive="active">
-        <mat-icon aria-hidden="false" aria-label="account_circle icon" style="padding-right: 12px; background-color: RGB(179, 222, 193)">account_circle</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="account_circle icon" style="padding-right: 12px; background-color: transparent">account_circle</mat-icon>
       </a>
-      <p style="background-color: RGB(179, 222, 193)">|</p>
+      <p style="background-color: transparent; color:RGB(250, 128, 114)">|</p>
       <a routerLink="/order"
          routerLinkActive="active">
         <mat-icon aria-hidden="false"
                   aria-label="account_circle icon"
-                  style="padding-left: 12px; background-color: RGB(179, 222, 193)"
+                  style="padding-left: 12px; background-color: transparent"
         >shopping_cart</mat-icon>
       </a>
 
@@ -96,12 +95,22 @@
 <!--  </div>-->
 
   <div class="images">
-<!--    <img src="https://bucataria-universala.com/wp-content/uploads/2016/12/Baigli-cu-nuca-sau-mac-cozonac-unguresc.jpg"-->
-<!--         alt="Baigli image">-->
-<!--    <img src="https://www.recipetineats.com/wp-content/uploads/2018/03/Chocolate-Cake_9-SQ.jpg" alt="Cake image">-->
-<!--    <img-->
-<!--      src="data:image/jpeg;base64,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"-->
-<!--      alt="Muffin image">-->
+    <img src="https://png.pngtree.com/thumb_back/fh260/background/20200806/pngtree-love-light-bokeh-image_383962.jpg"
+         alt="Sweet image">
+    <img src="https://png.pngtree.com/thumb_back/fh260/background/20200806/pngtree-love-light-bokeh-image_383962.jpg"
+         alt="Sweet image">
+    <img src="https://png.pngtree.com/thumb_back/fh260/background/20200806/pngtree-love-light-bokeh-image_383962.jpg"
+         alt="Sweet image">
+    <img src="https://png.pngtree.com/thumb_back/fh260/background/20200806/pngtree-love-light-bokeh-image_383962.jpg"
+         alt="Sweet image">
+    <img src="https://png.pngtree.com/thumb_back/fh260/background/20200806/pngtree-love-light-bokeh-image_383962.jpg"
+         alt="Sweet image">
+    <img src="https://png.pngtree.com/thumb_back/fh260/background/20200806/pngtree-love-light-bokeh-image_383962.jpg"
+         alt="Sweet image">
+    <img src="https://png.pngtree.com/thumb_back/fh260/background/20200806/pngtree-love-light-bokeh-image_383962.jpg"
+         alt="Sweet image">
+    <img src="https://png.pngtree.com/thumb_back/fh260/background/20200806/pngtree-love-light-bokeh-image_383962.jpg"
+         alt="Sweet image" style="width:24px; height:100px">
   </div>
 
   <!--   &nbsp;-->
@@ -116,7 +125,7 @@
   <!--  </a>-->
 </footer>
 <div class="closure">
-  <p style="background-color: RGB(229, 252, 245)"> Julie's Bakery * 2022 * SDA Final Project * by Ioana Gug</p>
+  <p style="background-color: RGB(147, 197, 114)"> Julie's Bakery * 2022 * SDA Final Project * by Ioana Gug</p>
 </div>
 
 <!--<svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">-->

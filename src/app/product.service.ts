@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ProductService {
-  private url = '/api/bakery/product';
+  private url = 'http://localhost:8080/api/bakery/product';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -21,5 +21,13 @@ export class ProductService {
 
   getProductByName(name:String): Observable<Object> {
     return this.httpClient.get(`${this.url}`+"/"+name)
+  }
+
+  getProductsInACategory(categoryName:String): Observable<Object> {
+    return this.httpClient.get(`${this.url}`+"/category/"+categoryName)
+  }
+
+  getCategoryPhoto(photoUrl:string): Observable<Object> {
+    return this.httpClient.get(photoUrl)
   }
 }

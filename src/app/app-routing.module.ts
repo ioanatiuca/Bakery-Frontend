@@ -16,12 +16,12 @@ const routes: Routes = [
   { path: 'client', component: CreateClientComponent },
   { path: 'story', component: OurStoryComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'product', component: ProductCategoriesComponent, canActivate:[AuthGuardService]},
+  { path: 'product/category', component: ProductCategoriesComponent},
   { path: '', component:HomePageComponent},
   { path: 'home', component: HomePageComponent},
-  { path: 'order', component:OrderComponent, canActivate:[AuthGuardService]},
-  { path: 'login', component: LoginComponent},
-  { path: 'logout', component: LogoutComponent, canActivate:[AuthGuardService]},
+  { path: 'order', component:OrderComponent},
+  // { path: 'login', component: LoginComponent},
+  // { path: 'logout', component: LogoutComponent, canActivate:[AuthGuardService]},
   { path: 'account', component: AccountComponent}
   // { path: 'client/:id', component: DeleteClientComponent },
 ];
