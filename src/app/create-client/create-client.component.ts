@@ -17,14 +17,9 @@ export class CreateClientComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  newClientDTO () : void {
-    this.submitted = false;
-    this.clientDTO = new ClientDTO();
-  }
-
   saveClient() {
     this.clientService.createClient(this.clientDTO).subscribe(response => {
-      alert("Clientul a fost creat");
+      alert("Your account has been saved.");
     })
     this.clientDTO = new ClientDTO();
     this.goToClientList();
@@ -36,6 +31,6 @@ export class CreateClientComponent implements OnInit {
   }
 
   private goToClientList() {
-    this.router.navigate(['/client']);
+    this.router.navigate(['/login']);
   }
 }

@@ -12,7 +12,6 @@ import {AccountComponent} from "./account/account.component";
 import {AuthGuardService} from "./auth-guard.service";
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'client', component: CreateClientComponent },
   { path: 'story', component: OurStoryComponent },
   { path: 'contact', component: ContactComponent },
@@ -20,8 +19,8 @@ const routes: Routes = [
   { path: '', component:HomePageComponent},
   { path: 'home', component: HomePageComponent},
   { path: 'order', component:OrderComponent},
-  // { path: 'login', component: LoginComponent},
-  // { path: 'logout', component: LogoutComponent, canActivate:[AuthGuardService]},
+  { path: 'login', component: LoginComponent},
+  { path: 'logout', component: LogoutComponent},
   { path: 'account', component: AccountComponent}
   // { path: 'client/:id', component: DeleteClientComponent },
 ];

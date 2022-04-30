@@ -9,4 +9,5 @@ export class ClientDTO {
   postalCode!:string;
   country!:string;
   password!:string;
+  role!:string;
 }

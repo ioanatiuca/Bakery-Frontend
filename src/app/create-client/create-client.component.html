@@ -1,57 +1,74 @@
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="create-client.component.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inspiration&amp;display=swap" rel="stylesheet">
-  <title>Client</title>
-</head>
-<body>
-<div>
-  <div class="ask-client">New client?
-    <div [hidden]="submitted" style="width: 500px;">
+<div class = "header-registration">
+  New client? Please register.
+</div>
+<div style="width: 400px;">
+  <div class="ask-client">
+    <div class="form-login" [hidden]="submitted" style="width: 500px;">
       <form (ngSubmit)="onSubmit()">
-        <br>
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" id="firstName" required [(ngModel)]="clientDTO.firstName" name="firstName">
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" id="lastName" required [(ngModel)]="clientDTO.lastName" name="lastName">
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="phoneNo">Phone number</label>
-          <input type="text" class="form-control" id="phoneNo" required [(ngModel)]="clientDTO.phoneNo" name="phoneNo">
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" required [(ngModel)]="clientDTO.address" name="address">
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="city">City</label>
-          <input type="text" class="form-control" id="city" required [(ngModel)]="clientDTO.city" name="city">
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="country">Country</label>
-          <input type="text" class="form-control" id="country" required [(ngModel)]="clientDTO.country" name="country">
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="text" class="form-control" id="email" required [(ngModel)]="clientDTO.email" name="email">
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="password">PASSWORD</label>
-          <input type="text" class="form-control" id="password" required [(ngModel)]="clientDTO.password" name="password">
-        </div>
-        <br>
+        <tr class="form-group">
+          <td>
+            <label for="firstName">First Name</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="firstName" required [(ngModel)]="clientDTO.firstName" name="firstName">
+          </td>
+        </tr>
+        <tr class="form-group">
+          <td>
+            <label for="lastName">Last Name</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="lastName" required [(ngModel)]="clientDTO.lastName" name="lastName">
+          </td>
+        </tr>
+        <tr class="form-group">
+          <td>
+            <label for="phoneNo">Phone number</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="phoneNo" required [(ngModel)]="clientDTO.phoneNo" name="phoneNo">
+          </td>
+        </tr>
+        <tr class="form-group">
+          <td>
+            <label for="address">Address</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="address" required [(ngModel)]="clientDTO.address" name="address">
+          </td>
+        </tr>
+        <tr class="form-group">
+          <td>
+            <label for="city">City</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="city" required [(ngModel)]="clientDTO.city" name="city">
+          </td>
+        </tr>
+        <tr class="form-group">
+          <td>
+            <label for="country">Country</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="country" required [(ngModel)]="clientDTO.country" name="country">
+          </td>
+        </tr>
+        <tr class="form-group">
+          <td>
+            <label for="email">E-mail</label>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="email" required [(ngModel)]="clientDTO.email" name="email">
+          </td>
+        </tr>
+        <tr class="form-group">
+          <td>
+            <label for="password">PASSWORD</label>
+          </td>
+          <td>
+            <input type="password" class="form-control" id="password" required [(ngModel)]="clientDTO.password" name="password">
+          </td>
+        </tr>
 <!--        <input type="button" value="SIGN UP" onclick="onSubmitButton()">-->
         <button type="submit" class="btn btn-success">REGISTER</button>
       </form>
@@ -60,6 +77,9 @@
 <!--&lt;!&ndash;        &lt;!&ndash; <button class="btn btn-success" (click)="newEmployee()">Add</button> &ndash;&gt;&ndash;&gt;-->
 <!--     </div>-->
     </div>
+    <div style="color:black; display: flex; justify-content: center; align-items: center; height: 50px">Already have an account? Please login
+      <a href="/login"> here</a>
+    </div>
+
   </div>
 </div>
-</body>

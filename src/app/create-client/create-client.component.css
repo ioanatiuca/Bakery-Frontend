@@ -1,17 +1,36 @@
 * {
-  background-color: RGB(255, 236, 209);
-/*  blanched almond */
+  font-family: "Dosis", sans-serif;
+}
+.form-login {
+  display: flex;
+  justify-content: space-around;
 }
 .form-group {
-  color:RGB(105, 140, 125);
+  color:RGB(62, 180, 137);
   /* wintergreen dream */
   font-size: 16px;
   font-weight: bold;
-}
-h4{
-  color:chocolate;
+
 }
 .ask-client{
-  color: RGB(0, 21, 36);
-/*  rich black fogra 29 */
+  color: RGB(62, 180, 137);
+  padding-bottom: 16px;
+  padding-top: 16px;
+  background-color: RGB(237, 201, 175);
+}
+.header-registration {
+  background-color:RGB(246, 247, 251) ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
+  font-size: 20px;
+  width: 400px;
+}
+tr {
+  height: 40px;
+  align-content: center;
+}
+td {
+  width: 200px;
 }
