@@ -1,6 +1,24 @@
 .menu {
+  font-family: "Dosis", sans-serif;
+  text-decoration: none;
   display:flex;
   justify-content: space-around;
-  width:400px;
-  padding-top: 14px;
+  align-items: center;
+  width:800px;
+  background-color: RGB(246, 247, 251);
+  height: 50px;
+  font-size: 26px;
+  color: RGB(250, 128, 114);
+}
+a {
+  text-decoration: none;
+  color: RGB(250, 128, 114);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar navbar-expand-md navbar-dark bg-dark {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }

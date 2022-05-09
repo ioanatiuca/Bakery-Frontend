@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import {forwardRef, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateClientComponent } from './create-client/create-client.component';
 import { DeleteClientComponent } from './delete-client/delete-client.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
@@ -53,8 +53,14 @@ import { ProductsComponent } from './products/products.component';
   providers: [
     ProductService,
     ClientServiceService,
-    OrderService
-    // { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }
+    OrderService,
+    CreateClientComponent,
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: OrderComponent,
+      multi: true
+    }
+
   ],
   bootstrap: [AppComponent]
 })

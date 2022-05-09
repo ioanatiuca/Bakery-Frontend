@@ -1,3 +1,8 @@
 * {
   font-family: "Dosis", sans-serif;
 }
+p {
+  font-size: 18px;
+  font-weight: bolder;
+  color: RGB(250, 128, 114);
+}

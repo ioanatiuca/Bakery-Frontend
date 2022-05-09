@@ -1,34 +1,42 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="order.component.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inspiration&amp;display=swap" rel="stylesheet">
-  <title>Order</title>
-</head>
-<div>Shopping cart</div>
-<div [hidden]="submitted" style="width: 500px;">
-  <form (ngSubmit)="onSubmitProduct()">
-      <div class="form-group">
-        <label for="productName">Product</label>
-        <input type="text" class="form-control" id="productName" required [(ngModel)]="orderLineDTO.product.name" name="productName">
+<body>
+  <div class="shopping-cart">Shopping cart</div>
+  <div class="form"[hidden]="submitted">
+    <form class="form-list" (ngSubmit)="onSubmitProduct()">
+        <div class="form-group">
+          <label for="productName">Product</label>
+          <select class="form-control" name="productName" id="productName" [(ngModel)]="orderLineDTO.product.name" [(ngModel)]="orderLineDTO.product.price" (change)="getAllProducts()">
+            <option [ngValue]="null">---</option>
+            <option *ngFor="let product of products"
+                    [ngValue]="orderLineDTO.product.name" [ngValue]="orderLineDTO.product.price">{{product.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" min=1 max=10 class="form-control" id="quantity" required [(ngModel)]="orderLineDTO.quantity"
+                 name="quantity" (change)="onChangeUpdatePrice(orderLineDTO.product.price, orderLineDTO.quantity)">
+        </div>
+        <div class="form-group">
+          <label for="totalPrice">Price</label>
+          <div class="form-control" id="totalPrice" required [(ngModel)]="orderLineDTO.totalPrice" name="totalPrice"> {{orderLineDTO.totalPrice}} lei </div>
+        </div>
+      <div class="form-group col-md-1">
+        <button class="submit" (click)="onSubmitProduct()">Add to cart</button>
       </div>
-      <div class="form-group">
-        <label for="quantity">Quantity</label>
-        <input type="number" class="form-control" id="quantity" required [(ngModel)]="orderLineDTO.quantity"
-               name="quantity">
+      <div class="form-group col-md-1">
+        <button type="button" class="push-to-remove">Remove product</button>
       </div>
-<!--      <div>{{calculatePrice(orderLineDTO) + " lei"}}</div>-->
-    <button type="submit" class="btn btn-success">Add to cart</button>
-  </form>
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="deliveryDate">Delivery date</label>
-      <input type="date" class="form-control" id="deliveryDate" required [(ngModel)]="orderDTO.deliveryDate"
-             name="deliveryDate">
-    </div>
-    <button type="submit" class="btn btn-success">ORDER NOW</button>
-  </form>
-</div>
-
+    </form>
+  
+  
+  <!--  <form (ngSubmit)="onSubmit()">-->
+  <!--    <div class="form-group">-->
+  <!--      <label for="deliveryDate">Delivery date</label>-->
+  <!--      <input type="date" class="form-control" id="deliveryDate" required [(ngModel)]="orderDTO.deliveryDate"-->
+  <!--             name="deliveryDate">-->
+  <!--    </div>-->
+  <!--    <button type="submit" class="btn btn-success">ORDER NOW</button>-->
+  <!--  </form>-->
+  </div>
+  
+  
+</body>

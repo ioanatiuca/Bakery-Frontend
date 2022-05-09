@@ -1,0 +1,20 @@
+* {
+  font-family: "Dosis", sans-serif;
+}
+.shopping-cart {
+  font-weight: bolder;
+  font-size: 20px;
+  color:RGB(250, 128, 114);
+  /*height: 40px;*/
+}
+.form-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.form-group {
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: space-around;*/
+  width: 150px;
+}

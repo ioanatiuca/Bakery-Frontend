@@ -1,11 +1,12 @@
 <header>
-  <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class ="navbar navbar-expand-md navbar-dark bg-dark" role="banner">
 
     <tr class="menu">
-      <td><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">My orders</a></td>
-      <td><a *ngIf="loginService.isUserLoggedIn()" routerLink="/order" class="nav-link">New order</a></td>
-      <td><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">LOGIN</a></td>
-      <td><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LOGOUT</a></td>
+      <!-- <td><a *ngIf="loginService.isUserLoggedIn()" routerLink="['/client/',{{client.updateClient()}}]" routerLinkActive="active" class="nav-link">My profile</a></td>
+      <td><a *ngIf="loginService.isUserLoggedIn()" routerLink="/order/all"  routerLinkActive="active" class="nav-link">My orders</a></td>
+      <td><a *ngIf="loginService.isUserLoggedIn()" routerLink="/order/add"  routerLinkActive="active" class="nav-link">New order</a></td>
+      <td><a style="font-weight: bolder" *ngIf="!loginService.isUserLoggedIn()" routerLink="/login"  routerLinkActive="active" class="nav-link">LOGIN</a></td>
+      <td><a style="font-weight: bolder" *ngIf="loginService.isUserLoggedIn()" routerLink="/logout"  routerLinkActive="active" class="nav-link">LOGOUT</a></td> -->
     </tr>
 
   </nav>

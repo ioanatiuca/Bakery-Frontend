@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../product.service";
 import {ProductDTO} from "../model/ProductDTO";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-categories',
@@ -16,7 +17,7 @@ export class ProductCategoriesComponent implements OnInit {
   prodMap: Map<number, ProductDTO[]> = new Map<number, ProductDTO[]>();
 
 
-  constructor(private service: ProductService) {
+  constructor(private service: ProductService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -65,8 +66,8 @@ export class ProductCategoriesComponent implements OnInit {
     })
   }
 
-  addToCart(p: ProductDTO) {
-    console.log(p);
+  addToCart() {
+    this.router.navigate(['/order']);
   }
 
 }

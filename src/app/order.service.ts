@@ -8,20 +8,40 @@ import {OrderLineDTO} from "./model/OrderLineDTO";
   providedIn: 'root'
 })
 export class OrderService {
-  private url = '/api/bakery/order';
+  private url = 'http://localhost:8080/api/bakery/order';
 
   constructor(private httpClient: HttpClient) {
   }
 
   addNewOrder(orderDTO: OrderDTO): Observable<Object> {
-    return this.httpClient.post(`${this.url}`, orderDTO);
+    return this.httpClient.post(`${this.url}`+'/add', orderDTO);
   }
 
   getAllOrders (): Observable<Object> {
-    return this.httpClient.get(`${this.url}`)
+    return this.httpClient.get(`${this.url}`+'/all')
   }
 
-  addNewProduct(orderLineDTO: OrderLineDTO):Observable<Object> {
-    return this.httpClient.post(`${this.url}`+"/cart", orderLineDTO);
+  cancelOrderByNumber(orderDTONumber: number):Observable<Object> {
+    return this.httpClient.post(`${this.url}`+'/cancel/'+ orderDTONumber.toString(), orderDTONumber);
+  }
+
+  addNewOrderLine (orderLineDTO: OrderLineDTO):Observable<Object> {
+    return this.httpClient.post(`${this.url}`+'/cart/add',orderLineDTO)
+  }
+
+  getAllOrderLines ():Observable<Object> {
+    return this.httpClient.get(`${this.url}`+'/cart/all')
+  }
+
+  updateOrderLine (orderLineDTO: OrderLineDTO) : Observable<Object> {
+    return this.httpClient.post(`${this.url}`+'/cart/update',orderLineDTO)
+  }
+
+  deleteOrderLine (orderLineDTO:OrderLineDTO): Observable<Object> {
+    return this.httpClient.delete(`${this.url}`+'cart/delete')
+  }
+
+  getOrderLineTotalPrice(orderLineDTO: OrderLineDTO): Observable<Object> {
+    return this.httpClient.get(`${this.url}`+'/cart/price')
   }
 }

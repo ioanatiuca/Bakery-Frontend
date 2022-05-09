@@ -1,3 +1,13 @@
-* {
+div {
   font-family: "Dosis", sans-serif;
+  width: 700px;
+  text-align: justify;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.logo-bakery {
+  font-family: "Inspiration", cursive;
+  font-size: 70px;
+  color:RGB(250, 128, 114);
 }

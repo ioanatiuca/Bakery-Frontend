@@ -33,4 +33,13 @@ export class CreateClientComponent implements OnInit {
   private goToClientList() {
     this.router.navigate(['/login']);
   }
+
+  updateClient() {
+    this.clientService.updateClientDetails(this.clientDTO).subscribe(response=> {
+      this.clientDTO=response as ClientDTO;
+      this.clientDTO.email!=sessionStorage.getItem('email');
+      console.log(response);
+      return sessionStorage.getItem('email');
+    })
+  }
 }

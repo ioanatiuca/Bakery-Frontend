@@ -6,6 +6,8 @@ import {OrderLineDTO} from "../model/OrderLineDTO";
 import {ProductCategory} from "../product-categories/product-categories.component";
 import {ProductDTO} from "../model/ProductDTO";
 import {ProductService} from "../product.service";
+import { FormGroup, FormControl } from '@angular/forms';
+import {ClientServiceService} from "../client-service.service";
 
 @Component({
   selector: 'app-order',
@@ -16,40 +18,63 @@ export class OrderComponent implements OnInit {
   orderDTO:OrderDTO =new OrderDTO(); submitted=false;
   orderLineDTO:OrderLineDTO=new OrderLineDTO();
   shoppingCart: OrderLineDTO[] = []; submittedCart=false;
+  products: ProductDTO[] = [];
+  product: ProductDTO = new ProductDTO;
+  formGroup: FormGroup = new FormGroup ({
+    productName: new FormControl(''),
+    quantity: new FormControl(0),
+    totalPrice: new FormControl(0)
+  }) ;
 
-  constructor(private orderService:OrderService, private productService: ProductService, private router:Router) {
+  
+
+  constructor(private orderService:OrderService,
+              private productService: ProductService,
+              private router:Router) {
   }
 
   ngOnInit(): void {
+    this.getAllProducts();
+    this.orderLineDTO.totalPrice=0;
+    const btn = document.querySelector('.push-to-add')
 
+    let repeatingField = document.querySelector('.form');
+
+    let newRepeating = document.createElement('section');
+    newRepeating.className = 'form';
+
+    let htmlElement = btn?.previousElementSibling?.appendChild(newRepeating);
+
+  }
+  getAllProducts () {
+    this.productService.getAllProducts().subscribe(response => {
+      this.products=response as ProductDTO[];
+      console.log(response);
+      }
+    )
   }
 
   saveOrder() {
-    // this.saveProduct(this.orderLineDTO);
     this.orderService.addNewOrder(this.orderDTO).subscribe(response => {
-      alert("Comanda trimisa");
+      alert("Order approved.");
     })
     this.orderDTO = new OrderDTO();
     this.goToOrderList();
   }
 
-  saveProduct(orderLineDTO:OrderLineDTO) {
-    this.orderService.addNewProduct(orderLineDTO).subscribe(response => {
-     orderLineDTO = response as OrderLineDTO;
-     this.productService.getProductByName(this.getProductName()).subscribe(response=>{
-       console.log(response);
-     });
-      this.shoppingCart.push(orderLineDTO);
-      this.orderDTO.shoppingCart = this.shoppingCart;
-      console.log(response);
+  addNewOrderLine(orderLineDTO:OrderLineDTO) {
+    this.orderService.addNewOrderLine(orderLineDTO).subscribe(response => {
+     this.orderLineDTO.product=this.product;
+     console.log(this.product);
+     this.orderLineDTO = response as OrderLineDTO;
+     console.log(response);
+     this.shoppingCart.push(this.orderLineDTO);
     })
-    orderLineDTO=new OrderLineDTO();
-    this.goToCartList();
   }
 
   onSubmitProduct() {
     this.submittedCart=true;
-    this.saveProduct(this.orderLineDTO);
+    this.addNewOrderLine(this.orderLineDTO);
   }
 
   onSubmit() {
@@ -63,15 +88,17 @@ export class OrderComponent implements OnInit {
     this.router.navigate(['/order/cart']);
   }
 
-  calculatePrice(orderLineDTO: OrderLineDTO) {
-    let product = this.orderLineDTO.product;
-    let quantity = this.orderLineDTO.quantity;
-    // @ts-ignore
-    return price=product.price*quantity;
+  getOrderLineTotalPrice(orderLineDTO:OrderLineDTO) {
+    this.orderService.getOrderLineTotalPrice(orderLineDTO).subscribe(response => {
+      this.orderLineDTO.totalPrice=response as number;
+      console.log(response);
+    })
   }
 
-  getProductName() {
-    let product = this.orderLineDTO.product;
-    return product.name;
+  onChangeUpdatePrice(productPrice: number, quantity: number) {
+    this.orderLineDTO.totalPrice= productPrice*quantity;
+    }
   }
-}
+
+
+  

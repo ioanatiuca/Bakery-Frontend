@@ -17,11 +17,15 @@ export class ClientServiceService {
   }
 
   public deleteClient(clientDTO: { email: string; }) {
-    return this.httpClient.delete<ClientDTO>("http://localhost:8080/api/bakery/client" + "/"+ clientDTO.email);
+    return this.httpClient.delete<ClientDTO>('http://localhost:8080/api/bakery/client/'+ clientDTO.email);
   }
 
-  public createClient(clientDTO: ClientDTO) {
-    return this.httpClient.post<ClientDTO>("http://localhost:8080/api/bakery/client/registration/new", clientDTO);
+  public createClient(clientDTO: ClientDTO): Observable<Object> {
+    return this.httpClient.post("http://localhost:8080/api/bakery/client/registration/new", clientDTO);
+  }
+
+  public updateClientDetails (clientDTO: ClientDTO): Observable<Object> {
+    return this.httpClient.post('http://localhost:8080/api/bakery/client/'+clientDTO.email, clientDTO);
   }
 
   // getAllClients():Observable<any> {
