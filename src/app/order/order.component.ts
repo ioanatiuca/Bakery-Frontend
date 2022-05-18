@@ -6,8 +6,8 @@ import {OrderLineDTO} from "../model/OrderLineDTO";
 import {ProductCategory} from "../product-categories/product-categories.component";
 import {ProductDTO} from "../model/ProductDTO";
 import {ProductService} from "../product.service";
-import { FormGroup, FormControl } from '@angular/forms';
 import {ClientServiceService} from "../client-service.service";
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-order',
@@ -15,89 +15,45 @@ import {ClientServiceService} from "../client-service.service";
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  orderDTO:OrderDTO =new OrderDTO(); submitted=false;
-  orderLineDTO:OrderLineDTO=new OrderLineDTO();
-  shoppingCart: OrderLineDTO[] = []; submittedCart=false;
-  products: ProductDTO[] = [];
-  product: ProductDTO = new ProductDTO;
-  formGroup: FormGroup = new FormGroup ({
-    productName: new FormControl(''),
-    quantity: new FormControl(0),
-    totalPrice: new FormControl(0)
-  }) ;
+  public order: OrderDTO = new OrderDTO;
+  public products: ProductDTO[] = [];
+  public grandTotal!: number;
 
-  
-
-  constructor(private orderService:OrderService,
-              private productService: ProductService,
-              private router:Router) {
+  constructor(private cartService: CartService, private orderService:OrderService) {
   }
 
   ngOnInit(): void {
-    this.getAllProducts();
-    this.orderLineDTO.totalPrice=0;
-    const btn = document.querySelector('.push-to-add')
-
-    let repeatingField = document.querySelector('.form');
-
-    let newRepeating = document.createElement('section');
-    newRepeating.className = 'form';
-
-    let htmlElement = btn?.previousElementSibling?.appendChild(newRepeating);
+    this.cartService.getProducts().subscribe(res=>{
+      this.products=res;
+      this.grandTotal=this.cartService.getTotalPrice();
+    })
 
   }
-  getAllProducts () {
-    this.productService.getAllProducts().subscribe(response => {
-      this.products=response as ProductDTO[];
-      console.log(response);
-      }
-    )
+  
+  removeItem(item:any) {
+    this.cartService.removeCartItem(item);
+  }
+
+  emptyCart() {
+    this.cartService.removeAllCart();
   }
 
   saveOrder() {
-    this.orderService.addNewOrder(this.orderDTO).subscribe(response => {
-      alert("Order approved.");
+    this.order.shoppingCart=this.cartService.cartItemList;
+    this.order.orderNumber=this.generateOrderNumber();
+    this.order.orderStatus='APPROVED';
+    this.order.totalPrice=this.cartService.getTotalPrice();
+    this.orderService.addNewOrder(this.order).subscribe(res=>{
+      alert("Order has been APPROVED.")
     })
-    this.orderDTO = new OrderDTO();
-    this.goToOrderList();
+    this.emptyCart();
   }
 
-  addNewOrderLine(orderLineDTO:OrderLineDTO) {
-    this.orderService.addNewOrderLine(orderLineDTO).subscribe(response => {
-     this.orderLineDTO.product=this.product;
-     console.log(this.product);
-     this.orderLineDTO = response as OrderLineDTO;
-     console.log(response);
-     this.shoppingCart.push(this.orderLineDTO);
-    })
+  generateOrderNumber():number {
+    let x=Math.random();
+    return x*1000000;
   }
-
-  onSubmitProduct() {
-    this.submittedCart=true;
-    this.addNewOrderLine(this.orderLineDTO);
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.saveOrder();
-  }
-  private goToOrderList() {
-    this.router.navigate(['/order']);
-  }
-  private goToCartList() {
-    this.router.navigate(['/order/cart']);
-  }
-
-  getOrderLineTotalPrice(orderLineDTO:OrderLineDTO) {
-    this.orderService.getOrderLineTotalPrice(orderLineDTO).subscribe(response => {
-      this.orderLineDTO.totalPrice=response as number;
-      console.log(response);
-    })
-  }
-
-  onChangeUpdatePrice(productPrice: number, quantity: number) {
-    this.orderLineDTO.totalPrice= productPrice*quantity;
-    }
+    
   }
 
 

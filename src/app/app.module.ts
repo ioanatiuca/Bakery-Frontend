@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateClientComponent } from './create-client/create-client.component';
-import { DeleteClientComponent } from './delete-client/delete-client.component';
+import { DeleteClientComponent } from './admin/delete-client.component';
 import {FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
@@ -23,6 +23,9 @@ import {XhrInterceptor} from "./xhrInterceptor";
 import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { ProductsComponent } from './products/products.component';
+import { AdminClientsComponent } from './admin-clients/admin-clients.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { ProductsComponent } from './products/products.component';
     LoginComponent,
     LogoutComponent,
     AccountComponent,
-    ProductsComponent
+    ProductsComponent,
+    AdminClientsComponent,
+    AdminProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,7 @@ import { ProductsComponent } from './products/products.component';
     BrowserAnimationsModule,
     MatTableModule,
     MatIconModule,
+    MatButtonModule,
     HttpClientModule,
     ReactiveFormsModule
   ],
@@ -55,6 +61,7 @@ import { ProductsComponent } from './products/products.component';
     ClientServiceService,
     OrderService,
     CreateClientComponent,
+    ProductCategoriesComponent,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: OrderComponent,

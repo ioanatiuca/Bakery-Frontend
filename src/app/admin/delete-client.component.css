@@ -1,0 +1,25 @@
+* {
+    font-family: "Dosis", sans-serif;
+}
+thead {
+    background-color: RGB(246, 247, 251);
+    color: RGB(250, 128, 114);
+    justify-content: center;
+    display: flex;
+}
+.objects {
+    font-size: 14px;
+    width: 1000px;
+    justify-content: left;
+    display: flex;
+}
+td {
+    width: 200px;
+    text-decoration: none;
+}
+a {
+    text-decoration: none;
+    color:RGB(250, 128, 114);
+    background-color: RGB(246, 247, 251);
+    font-size: 28px;
+}

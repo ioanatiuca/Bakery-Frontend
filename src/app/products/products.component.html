@@ -1,1 +1,14 @@
-<p>products works!</p>
+<div class="position">
+        <table class="all-prod" >
+            <tr *ngFor="let p of products" class="products" style="height:80px;">
+              <td style="width: 100px;">
+                <img [src]="p.photoUrl" style="width: 60px; height: 60px; border-radius: 50%;">
+              </td>
+              <td style="font-weight: bolder;width: 250px;">{{p.name}}</td>
+              <td style="width:100px">{{p.price + " lei" }}</td>
+              <td style="width:100px">
+                <button mat-raised-button (click)="addToCart(p)" >Add to cart</button>
+              </td>
+            </tr>
+          </table>
+</div>

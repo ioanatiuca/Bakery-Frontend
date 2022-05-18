@@ -1,0 +1,25 @@
+<thead>
+    <tr style="font-weight: bolder;">
+        <td>ID</td>
+        <td>Name</td>
+        <td>Category</td>
+        <td>Price</td>
+      </tr>
+</thead>
+<tbody>
+    <td>
+      <div *ngFor="let product of products">
+        <tr class="products">
+            <td>{{product.productId}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.category.name}}</td>
+            <td>{{product.price + " lei"}}</td>
+        </tr>
+        <br>
+      </div>
+      
+    </td>
+
+  </tbody>
+
+

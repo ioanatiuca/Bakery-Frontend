@@ -1,23 +1,37 @@
-<div id = "clear" class="categories">
+<!-- <div id = "clear" class="categories">
   <div *ngFor="let c of categories" class = "line-categ">
     <img [src]="c.photoUrl" style="width: 200px; height: 200px; border-radius: 12px">
     <button
       (click)="getAllProductsInACategory(c.name)" (click)="clearcontent('clear')"
       class="button-categories">{{c.name}}</button>
   </div>
+</div> -->
+
+<div class="categories">
+  <div *ngFor="let c of categories" class = "line-categ">
+    <img [src]="c.photoUrl" style="width: 200px; height: 200px; border-radius: 12px">
+    <a [routerLink]="[c.id]" (ngModel)=categoryName class="button-categories">{{c.name}}</a>
+  </div>
 </div>
 
-<div class="position">
+
+
+<!-- 
+<div id="list" class="position">
   <table class="all-prod" *ngFor="let p of products">
-    <tr class="products">
-      <td style="font-weight: bolder">{{p.name}}</td>
-      <td>{{p.price + " lei" }}</td>
-      <td>
+    <tr class="products" style="height:80px;">
+      <td style="width: 100px;">
+        <img [src]="p.photoUrl" style="width: 60px; height: 60px; border-radius: 50%;">
+      </td>
+      <td style="font-weight: bolder;width: 250px;">{{p.name}}</td>
+      <td style="width:100px">{{p.price + " lei" }}</td>
+      <td style="width:100px">
         <button (click)="addToCart()" >Add to cart</button>
       </td>
     </tr>
   </table>
-</div>
+</div> -->
+
 
 
 

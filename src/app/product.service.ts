@@ -23,8 +23,8 @@ export class ProductService {
     return this.httpClient.get(`${this.url}`+"/"+name)
   }
 
-  getProductsInACategory(categoryName:String): Observable<Object> {
-    return this.httpClient.get(`${this.url}`+"/category/"+categoryName)
+  getProductsInACategory(categoryId:number): Observable<Object> {
+    return this.httpClient.get(`${this.url}`+"/category/"+categoryId)
   }
 
   getCategoryPhoto(photoUrl:string): Observable<Object> {

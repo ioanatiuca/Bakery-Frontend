@@ -1,23 +1,102 @@
-<body>
+<ng-container *ngIf="products.length!=0">
+  <div class="container">
+    <div class="card-table">
+      <div class="cart-product">
+        <table class="table-responsive">
+          <thead style="font-weight:bolder">
+            <tr style="height:40px">
+              <td style="width:50px">No.</td>
+              <td style="width:100px">Product photo</td>
+              <td style="width:200px">Product name</td>
+              <td style="width:70px">Quantity</td>
+              <td style="width:100px">Price</td>
+              <td style="width:50px"></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of products; let i = index" style="height:70px">
+              <td style="width:50px">{{i+1}}</td>
+              <td style="width:100px">
+                <img style="width: 50px;height: 50px;border-radius: 50%;" src="{{p.photoUrl}}">
+              </td>
+              <td style="width:200px">{{p.name}}</td>
+              <td style="width:70px">{{p.quantity}}</td>
+              <td style="width:100px">{{p.price + " lei"}}</td>
+              <td style="width:50px">
+                <button (click)="removeItem(p)" mat-raised-button class="buttons">
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+              <td>
+                <strong>Total price: {{grandTotal}} lei</strong>
+              </td>
+              <td>
+                <button class="buttons" mat-raised-button (click)="emptyCart()">Empty cart</button>
+              </td>
+              <td>
+                <button class="buttons" mat-raised-button routerLink="/product/category">Shop more</button>
+              </td>
+              <td>
+                <button style="color:RGB(62, 180, 137)" class="buttons" mat-raised-button (click)="saveOrder()">ORDER NOW</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length==0">
+  <div class="container">
+    <div class="card">
+      <h6 class="card-title">Shopping cart</h6>
+    </div>
+    <div class="center">
+      <div class="message">Your cart is empty!</div>
+      <img class="cart-image" src="https://img.freepik.com/free-photo/delicious-rice-cakes-small-shopping-cart-scattered-buckwheat_114579-25385.jpg" alt="">
+      <div class="message">Add new product</div>
+      <div style="  display: flex;
+      justify-content: center;">
+        <button routerLink="/product/category" mat-raised-button class="btn-order">Shop now</button>
+      </div>   
+    </div>
+  </div>
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body>
   <div class="shopping-cart">Shopping cart</div>
   <div class="form"[hidden]="submitted">
-    <form class="form-list" (ngSubmit)="onSubmitProduct()">
+    <form class="form-list" (ngSubmit)="onSubmitProduct()" ng-repeat="product in orderLineDTO">
         <div class="form-group">
           <label for="productName">Product</label>
-          <select class="form-control" name="productName" id="productName" [(ngModel)]="orderLineDTO.product.name" [(ngModel)]="orderLineDTO.product.price" (change)="getAllProducts()">
+          <select class="form-control" name="productName" id="productName" [(ngModel)]="orderLineDTO.product" (change)="getAllProducts()">
             <option [ngValue]="null">---</option>
             <option *ngFor="let product of products"
-                    [ngValue]="orderLineDTO.product.name" [ngValue]="orderLineDTO.product.price">{{product.name}}</option>
+                    [ngValue]="product.price">{{product.name}}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="quantity">Quantity</label>
           <input type="number" min=1 max=10 class="form-control" id="quantity" required [(ngModel)]="orderLineDTO.quantity"
-                 name="quantity" (change)="onChangeUpdatePrice(orderLineDTO.product.price, orderLineDTO.quantity)">
+                 name="quantity">
         </div>
         <div class="form-group">
           <label for="totalPrice">Price</label>
-          <div class="form-control" id="totalPrice" required [(ngModel)]="orderLineDTO.totalPrice" name="totalPrice"> {{orderLineDTO.totalPrice}} lei </div>
+          <div class="form-control" id="totalPrice" required [(ngModel)]="orderLineDTO.totalPrice" name="totalPrice"> {{orderLineDTO.totalPrice}}</div>
         </div>
       <div class="form-group col-md-1">
         <button class="submit" (click)="onSubmitProduct()">Add to cart</button>
@@ -28,15 +107,15 @@
     </form>
   
   
-  <!--  <form (ngSubmit)="onSubmit()">-->
-  <!--    <div class="form-group">-->
-  <!--      <label for="deliveryDate">Delivery date</label>-->
-  <!--      <input type="date" class="form-control" id="deliveryDate" required [(ngModel)]="orderDTO.deliveryDate"-->
-  <!--             name="deliveryDate">-->
-  <!--    </div>-->
-  <!--    <button type="submit" class="btn btn-success">ORDER NOW</button>-->
-  <!--  </form>-->
+   <form (ngSubmit)="onSubmit()">
+     <div class="form-group">
+       <label for="deliveryDate">Delivery date</label>
+       <input type="date" class="form-control" id="deliveryDate" required [(ngModel)]="orderDTO.deliveryDate"
+              name="deliveryDate">
+     </div>
+     <button type="submit" class="btn btn-success">ORDER NOW</button>
+   </form>
   </div>
   
   
-</body>
+</body> -->

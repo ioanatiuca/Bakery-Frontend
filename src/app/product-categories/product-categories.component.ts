@@ -13,6 +13,7 @@ export class ProductCategoriesComponent implements OnInit {
   categories: ProductCategory[] = [];
   products: ProductDTO[] = [];
   photo:number[]=[];
+  categoryName!:string;
 
   prodMap: Map<number, ProductDTO[]> = new Map<number, ProductDTO[]>();
 
@@ -33,8 +34,8 @@ export class ProductCategoriesComponent implements OnInit {
       }});
   }
 
-  getAllProductsInACategory(categoryName:string) {
-    this.service.getProductsInACategory(categoryName).subscribe(response => {
+  getAllProductsInACategory(categoryId:number) {
+    this.service.getProductsInACategory(categoryId).subscribe(response => {
       this.products = response as ProductDTO[];
       console.log(response);
     })

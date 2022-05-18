@@ -1,0 +1,9 @@
+* {
+    font-family: "Dosis", sans-serif;
+}
+button {
+    background-color: transparent;
+    color:RGB(250, 128, 114);
+    font-weight: bolder;
+    font-size: 16px;
+}

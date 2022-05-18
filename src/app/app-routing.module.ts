@@ -10,18 +10,26 @@ import {LoginComponent} from "./login/login.component";
 import {LogoutComponent} from "./logout/logout.component";
 import {AccountComponent} from "./account/account.component";
 import {AuthGuardService} from "./auth-guard.service";
+import { DeleteClientComponent } from './admin/delete-client.component';
+import { AdminClientsComponent } from './admin-clients/admin-clients.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   { path: 'client', component: CreateClientComponent },
   { path: 'story', component: OurStoryComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'product/category', component: ProductCategoriesComponent},
+  { path: 'product/category/:name', component:ProductsComponent},
   { path: '', component:HomePageComponent},
   { path: 'home', component: HomePageComponent},
-  { path: 'order', component:OrderComponent},
+  { path: 'order', component:OrderComponent, canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent},
   { path: 'logout', component: LogoutComponent},
-  { path: 'account', component: AccountComponent}
+  { path: 'account', component: AccountComponent},
+  { path: 'admin', component: DeleteClientComponent, canActivate: [AuthGuardService]}, //=admincomponent
+  { path: 'admin-clients', component: AdminClientsComponent, canActivate: [AuthGuardService]},
+  { path: 'admin-products', component: AdminProductsComponent, canActivate: [AuthGuardService]}
   // { path: 'client/:id', component: DeleteClientComponent },
 ];
 

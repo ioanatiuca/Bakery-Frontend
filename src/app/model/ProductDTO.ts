@@ -5,4 +5,6 @@ export class ProductDTO {
   category!:ProductCategory;
   name!:string;
   price!:number;
+  quantity!: number;
+  photoUrl!:string;
 }

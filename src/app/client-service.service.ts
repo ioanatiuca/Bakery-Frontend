@@ -8,16 +8,14 @@ import {ClientDTO} from "./model/ClientDTO";
 })
 export class ClientServiceService {
 
-  // private url= '/api/bakery';
-
   constructor(private httpClient: HttpClient) { }
 
-  getAllClients() {
-    return this.httpClient.get<ClientDTO[]>('http://localhost:8080/api/bakery/client');
+  getAllClients():Observable<Object> {
+    return this.httpClient.get('http://localhost:8080/api/bakery/admin/client/all');
   }
 
-  public deleteClient(clientDTO: { email: string; }) {
-    return this.httpClient.delete<ClientDTO>('http://localhost:8080/api/bakery/client/'+ clientDTO.email);
+  public deleteClient(id:number){
+    return this.httpClient.delete('http://localhost:8080/api/bakery/admin/client/'+ id);
   }
 
   public createClient(clientDTO: ClientDTO): Observable<Object> {
@@ -25,7 +23,7 @@ export class ClientServiceService {
   }
 
   public updateClientDetails (clientDTO: ClientDTO): Observable<Object> {
-    return this.httpClient.post('http://localhost:8080/api/bakery/client/'+clientDTO.email, clientDTO);
+    return this.httpClient.post('http://localhost:8080/api/bakery/admin/client/'+clientDTO.email, clientDTO);
   }
 
   // getAllClients():Observable<any> {

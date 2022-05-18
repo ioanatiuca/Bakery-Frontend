@@ -1,0 +1,23 @@
+* {
+    font-family: "Dosis", sans-serif;
+}
+
+thead {
+    background-color: RGB(246, 247, 251);
+    color: RGB(250, 128, 114);
+    justify-content: left;
+    display: flex;
+}
+.clients {
+    font-size: 14px;
+    width: 1000px;
+    justify-content: left;
+    display: flex;
+}
+tr {
+    display: flex;
+    justify-content: left;
+}
+td {
+    width: 120px;
+}
