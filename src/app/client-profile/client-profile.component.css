@@ -1,0 +1,25 @@
+*{
+    font-family: "Dosis", sans-serif;
+}
+td{
+    width: 200px;
+    height: 30px;
+}
+.header{
+    color:RGB(250, 128, 114);
+    font-weight: bold;
+}
+.title{
+    color:RGB(62, 180, 137);
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
+button{
+    color:RGB(62, 180, 137);
+    background-color: transparent;
+    font-weight: bold;
+}

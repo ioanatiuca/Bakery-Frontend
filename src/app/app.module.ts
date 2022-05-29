@@ -26,6 +26,8 @@ import { ProductsComponent } from './products/products.component';
 import { AdminClientsComponent } from './admin-clients/admin-clients.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { MatButtonModule } from '@angular/material/button';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,10 @@ import { MatButtonModule } from '@angular/material/button';
     AccountComponent,
     ProductsComponent,
     AdminClientsComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    AdminOrdersComponent,
+    ClientProfileComponent,
+    ClientProfileComponent
   ],
   imports: [
     BrowserModule,

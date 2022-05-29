@@ -14,6 +14,8 @@ import { DeleteClientComponent } from './admin/delete-client.component';
 import { AdminClientsComponent } from './admin-clients/admin-clients.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { ProductsComponent } from './products/products.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
 
 const routes: Routes = [
   { path: 'client', component: CreateClientComponent },
@@ -27,9 +29,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'logout', component: LogoutComponent},
   { path: 'account', component: AccountComponent},
+  { path: 'client-profile', component:ClientProfileComponent},
   { path: 'admin', component: DeleteClientComponent, canActivate: [AuthGuardService]}, //=admincomponent
   { path: 'admin-clients', component: AdminClientsComponent, canActivate: [AuthGuardService]},
-  { path: 'admin-products', component: AdminProductsComponent, canActivate: [AuthGuardService]}
+  { path: 'admin-products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
+  { path: 'admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]}
   // { path: 'client/:id', component: DeleteClientComponent },
 ];
 

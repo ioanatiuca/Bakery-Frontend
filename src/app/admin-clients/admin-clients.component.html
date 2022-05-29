@@ -1,34 +1,32 @@
 <thead>
         <tr style="font-weight: bolder;">
             <td style="width:50px;">ID</td>
-            <td>First name</td>
-            <td>Last name</td>
-            <td>Address</td>
-            <td>City</td>
-            <td>Country</td>
+            <td style="width:150px;">First name</td>
+            <td style="width:150px;">Last name</td>
+            <td style="width:150px;">Address</td>
+            <td style="width:120px;">City</td>
+            <td style="width:120px;">Country</td>
             <td style="width:200px;">Email</td>
             <td> </td>
           </tr>
-    </thead>
-    <tbody>
+</thead>
+<tbody>
         <td>
           <div *ngFor="let client of clients">
             <tr class="clients">
                 <td style="width:50px;">{{client.clientId}}</td>
-                <td>{{client.firstName}}</td>
-                <td>{{client.lastName}}</td>
-                <td>{{client.address}}</td>
-                <td>{{client.city}}</td>
-                <td>{{client.country}}</td>
+                <td style="width:150px;">{{client.firstName}}</td>
+                <td style="width:150px;">{{client.lastName}}</td>
+                <td style="width:150px;">{{client.address}}</td>
+                <td style="width:120px;">{{client.city}}</td>
+                <td style="width:120px;">{{client.country}}</td>
                 <td style="width:200px;">{{client.email}}</td>
                 <td>
-                    <button (click)="updateClientDetails(client)">UPDATE</button>
+                    <button mat-raised-button class="update-button"(click)="updateClientDetails(client)">UPDATE</button>
                 </td>
             </tr>
             <br>
           </div>
-          
         </td>
-    
-      </tbody>
+</tbody>
 

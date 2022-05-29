@@ -1,0 +1,11 @@
+* {
+font-family: "Dosis", sans-serif;
+}
+td {
+height: 40px; 
+}
+thead {
+color: RGB(250, 128, 114);
+background-color: RGB(246, 247, 251);
+font-weight: bolder;
+}

@@ -1,3 +1,4 @@
+import { ClientDTO } from "./ClientDTO";
 import { ProductDTO } from "./ProductDTO";
 
 export class OrderDTO {
@@ -8,4 +9,5 @@ export class OrderDTO {
   shoppingCart!: ProductDTO[];
   orderStatus!:string;
   totalPrice!:number;
+  client!: ClientDTO;
 }

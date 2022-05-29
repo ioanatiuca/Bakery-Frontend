@@ -7,16 +7,15 @@
 }
 .form-group {
   color:RGB(62, 180, 137);
-  /* wintergreen dream */
   font-size: 16px;
   font-weight: bold;
 
 }
 .ask-client{
   color: RGB(62, 180, 137);
-  padding-bottom: 16px;
-  padding-top: 16px;
+  padding-top: 20px;
   background-color: RGB(237, 201, 175);
+  align-items: center;
 }
 .header-registration {
   background-color:RGB(246, 247, 251) ;
@@ -33,4 +32,9 @@ tr {
 }
 td {
   width: 200px;
+}
+button{
+  background-color: RGB(246, 247, 251);
+  color:RGB(250, 128, 114);
+  font-weight: bold;
 }

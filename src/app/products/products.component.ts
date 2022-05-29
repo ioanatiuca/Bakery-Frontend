@@ -11,6 +11,8 @@ import { ProductService } from '../product.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  categoryId:number=1;
+  url:string="";
   categories:ProductCategory[]=[];
   products:ProductDTO[]=[];
   constructor(private router:Router, 
@@ -18,13 +20,10 @@ export class ProductsComponent implements OnInit {
     private cartService:CartService) { }
 
   ngOnInit(): void {
-    this.productService.getAllProducts().subscribe(res=>{
-      this.products=res as ProductDTO[];
-      console.log(res);
-      this.products.forEach((a:ProductDTO)=>
-      Object.assign(a, {quantity:1, total:a.price})
-      )
-    })
+    this.url=this.router.url;
+    let array = this.url.split("/");
+    this.categoryId=Number(array[array.length-1]);
+    this.getAllProductsInACategory(this.categoryId);
   }
 
   addToCart(product:ProductDTO) {
@@ -35,6 +34,9 @@ export class ProductsComponent implements OnInit {
     this.productService.getProductsInACategory(categoryId).subscribe(response => {
       this.products = response as ProductDTO[];
       console.log(response);
+      this.products.forEach((a:ProductDTO)=>
+      Object.assign(a, {quantity:1, total:a.price})
+      )
     })
     return this.products;
   }

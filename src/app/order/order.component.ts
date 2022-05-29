@@ -8,6 +8,8 @@ import {ProductDTO} from "../model/ProductDTO";
 import {ProductService} from "../product.service";
 import {ClientServiceService} from "../client-service.service";
 import { CartService } from '../cart.service';
+import { LoginService } from '../login.service';
+import { ClientDTO } from '../model/ClientDTO';
 
 @Component({
   selector: 'app-order',
@@ -18,8 +20,14 @@ export class OrderComponent implements OnInit {
   public order: OrderDTO = new OrderDTO;
   public products: ProductDTO[] = [];
   public grandTotal!: number;
+  submitted:boolean=false;
+  today = new Date().toLocaleDateString('en-ca');
+  email:string='';
+  client:ClientDTO=new ClientDTO;
 
-  constructor(private cartService: CartService, private orderService:OrderService) {
+  constructor(private cartService: CartService, 
+    private orderService:OrderService,
+    private clientService:ClientServiceService) {
   }
 
   ngOnInit(): void {
@@ -39,7 +47,10 @@ export class OrderComponent implements OnInit {
   }
 
   saveOrder() {
-    this.order.shoppingCart=this.cartService.cartItemList;
+    let userEmail = sessionStorage.getItem('email');
+    // this.order.clientDTOemail!=userEmail;
+    // this.order=Object.assign(this.products);
+    // console.log(JSON.stringify(this.order.shoppingCart));
     this.order.orderNumber=this.generateOrderNumber();
     this.order.orderStatus='APPROVED';
     this.order.totalPrice=this.cartService.getTotalPrice();
@@ -53,7 +64,19 @@ export class OrderComponent implements OnInit {
     let x=Math.random();
     return x*1000000;
   }
-    
+  
+  onSubmit() {
+    this.submitted=true;
+  }
+
+  getClient() {
+    this.email = sessionStorage.getItem('email')!;
+    this.clientService.getClientByEmail(this.email).subscribe(res=>{
+      this.client=res as ClientDTO;
+      console.log(this.client);
+    })
+    return this.client;
+  }
   }
 
 

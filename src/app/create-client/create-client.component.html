@@ -69,13 +69,10 @@
             <input type="password" class="form-control" id="password" required [(ngModel)]="clientDTO.password" name="password">
           </td>
         </tr>
-<!--        <input type="button" value="SIGN UP" onclick="onSubmitButton()">-->
-        <button type="submit" class="btn btn-success">REGISTER</button>
+        <tr style="display: flex;justify-content: center;">
+          <button mat-raised-button type="submit" class="btn btn-success">REGISTER</button>
+        </tr>
       </form>
-<!--      <div [hidden]="!submitted">&ndash;&gt;-->
-<!--        <h4>Your account has been created successfully</h4>&ndash;&gt;-->
-<!--&lt;!&ndash;        &lt;!&ndash; <button class="btn btn-success" (click)="newEmployee()">Add</button> &ndash;&gt;&ndash;&gt;-->
-<!--     </div>-->
     </div>
     <div style="color:black; display: flex; justify-content: center; align-items: center; height: 50px">Already have an account? Please login
       <a href="/login"> here</a>

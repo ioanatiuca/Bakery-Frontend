@@ -23,13 +23,19 @@
               <td style="width:70px">{{p.quantity}}</td>
               <td style="width:100px">{{p.price + " lei"}}</td>
               <td style="width:50px">
-                <button (click)="removeItem(p)" mat-raised-button class="buttons">
-                  Delete
-                </button>
+                <button (click)="removeItem(p)" mat-raised-button class="buttons">Delete</button>
               </td>
             </tr>
             <tr>
-              <td colspan="2"></td>
+              <td>Delivery date</td>
+              <td>
+                <form (ngSubmit)="onSubmit()">
+                  <div class="form-group"> 
+                    <input type="date" min={{today}} class="form-control" id="deliveryDate" required [(ngModel)]="order.deliveryDate"
+                           name="deliveryDate">
+                  </div>
+                </form>
+              </td>
               <td>
                 <strong>Total price: {{grandTotal}} lei</strong>
               </td>
@@ -37,7 +43,7 @@
                 <button class="buttons" mat-raised-button (click)="emptyCart()">Empty cart</button>
               </td>
               <td>
-                <button class="buttons" mat-raised-button routerLink="/product/category">Shop more</button>
+                <button type="submit" class="buttons" mat-raised-button routerLink="/product/category">Shop more</button>
               </td>
               <td>
                 <button style="color:RGB(62, 180, 137)" class="buttons" mat-raised-button (click)="saveOrder()">ORDER NOW</button>

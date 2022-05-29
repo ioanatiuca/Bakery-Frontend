@@ -1,25 +1,27 @@
 <thead>
     <tr style="font-weight: bolder;">
-        <td>ID</td>
-        <td>Name</td>
-        <td>Category</td>
-        <td>Price</td>
+        <td style="width:50px;">ID</td>
+        <td style="width:250px;">Name</td>
+        <td style="width:250px;">Category</td>
+        <td style="width:100px;">Price</td>
       </tr>
 </thead>
 <tbody>
-    <td>
-      <div *ngFor="let product of products">
-        <tr class="products">
-            <td>{{product.productId}}</td>
-            <td>{{product.name}}</td>
-            <td>{{product.category.name}}</td>
-            <td>{{product.price + " lei"}}</td>
+      <div >
+        <tr class="products" style="height: 30px;" *ngFor="let product of products">
+            <td style="width:50px;">{{product.productId}}</td>
+            <td style="width:250px;">{{product.name}}</td>
+            <td style="width:250px;">{{product.category.name}}</td>
+            <td style="width:100px;">{{product.price + " lei"}}</td>
         </tr>
-        <br>
-      </div>
-      
-    </td>
+        <tr>
+          <td colspan="3"></td>
+          <td>
+            <button mat-raised-button class="add-button">ADD NEW PRODUCT</button>
+          </td>
+        </tr>
+      </div>      
+</tbody>
 
-  </tbody>
 
 

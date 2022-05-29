@@ -4,18 +4,18 @@
 thead {
     background-color: RGB(246, 247, 251);
     color: RGB(250, 128, 114);
-    justify-content: center;
     display: flex;
+    align-items: center;
+    height:50px;
 }
 .objects {
     font-size: 14px;
-    width: 1000px;
-    justify-content: left;
-    display: flex;
 }
 td {
     width: 200px;
     text-decoration: none;
+    justify-content: center;
+    display: flex;
 }
 a {
     text-decoration: none;

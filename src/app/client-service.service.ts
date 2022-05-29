@@ -26,12 +26,7 @@ export class ClientServiceService {
     return this.httpClient.post('http://localhost:8080/api/bakery/admin/client/'+clientDTO.email, clientDTO);
   }
 
-  // getAllClients():Observable<any> {
-  //   return this.httpClient.get(`${this.url}`)
-  // }
-  //
-  // createClient(clientDTO: Object): Observable<Object> {
-  //   return this.httpClient.post(`${this.url}`+"/client", clientDTO);
-  // }
-
+  public getClientByEmail(email:String):Observable<Object> {
+    return this.httpClient.get('http://localhost:8080/api/bakery/client/'+email);
+  }
 }

@@ -1,0 +1,31 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td style="width:50px;">No.</td>
+                <td style="width:150px;">Order number</td>
+                <td style="width:150px;">Order date</td>
+                <td style="width:150px;">Delivery date</td>
+                <td style="width:100px;">Discount</td>
+                <td style="width:150px;">Order status</td>
+                <td style="width:250px;">Products ordered</td>
+                <td style="width:150px;">Client name</td>
+                <td style="width:100px;">Total price</td>
+            </tr>           
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders; let i=index">
+                <td style="width:50px;">{{i+1}}</td>
+                <td style="width:150px;">{{order.orderNumber}}</td>
+                <td style="width:150px;">{{order.orderDate}}</td>
+                <td style="width:150px;">{{order.deliveryDate}}</td>
+                <td style="width:100px;">0</td>
+                <td style="width:150px;">{{order.orderStatus}}</td>
+                <td style="width:250px;">{{order.shoppingCart}}</td>
+                <td style="width:150px;">{{order.client.firstName}}</td>
+                <td style="width:100px;">{{order.totalPrice}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

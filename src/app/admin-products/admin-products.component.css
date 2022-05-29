@@ -10,7 +10,6 @@ thead {
 }
 .products {
     font-size: 14px;
-    width: 1000px;
     justify-content: left;
     display: flex;
 }
@@ -20,4 +19,9 @@ tr {
 }
 td {
     width: 200px;
+}
+.add-button{
+    background-color: transparent;
+    color: RGB(62, 180, 137);
+    font-weight: bold;
 }

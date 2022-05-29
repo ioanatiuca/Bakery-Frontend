@@ -29,19 +29,4 @@ export class OrderService {
     return this.httpClient.post(`${this.url}`+'/cart/add',orderLineDTO)
   }
 
-  getAllOrderLines ():Observable<Object> {
-    return this.httpClient.get(`${this.url}`+'/cart/all')
-  }
-
-  updateOrderLine (orderLineDTO: OrderLineDTO) : Observable<Object> {
-    return this.httpClient.post(`${this.url}`+'/cart/update',orderLineDTO)
-  }
-
-  deleteOrderLine (orderLineDTO:OrderLineDTO): Observable<Object> {
-    return this.httpClient.delete(`${this.url}`+'cart/delete')
-  }
-
-  getOrderLineTotalPrice(orderLineDTO: OrderLineDTO): Observable<Object> {
-    return this.httpClient.get(`${this.url}`+'/cart/price')
-  }
 }

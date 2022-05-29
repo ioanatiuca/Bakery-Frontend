@@ -4,7 +4,6 @@
   display:flex;
   justify-content: space-around;
   align-items: center;
-  width:800px;
   background-color: RGB(246, 247, 251);
   height: 50px;
   font-size: 26px;
@@ -21,4 +20,11 @@ a {
   position: absolute;
   top: 10px;
   left: 10px;
+}
+.logged-in{
+  width: 150px;
+}
+.logged-out{
+  width: 50px;
+  position:absolute;
 }
